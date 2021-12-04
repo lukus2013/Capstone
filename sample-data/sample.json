@@ -1,0 +1,32 @@
+{
+    "Game1": {
+        "uid": "lukus2013@yahoo.com",
+        "gameId": "2021124game1",
+        "date": "12/4/2021",
+        "frames": "[[8,1],[7,0],[3,6],[8,0],[8,2],[3,4],[10],[8,2],[8,0],[0,8]]",
+        "framesScore": "[[9],[16],[25],[33],[46],[53],[73],[91],[99],[107]]",
+        "finalScore": "[107]",
+        "startedDrinking": 7,
+        "totalNumOfDrinks": 2
+    },
+    "Game2": {
+        "uid": "lukus2013@yahoo.com",
+        "gameId": "2021124game2",
+        "date": "12/4/2021",
+        "frames": "[[10],[10],[10],[10],[10],[10],[10],[10],[10],[10,10,10]]",
+        "framesScore": "[[30],[60],[90],[120],[150],[180],[210],[240],[270],[300]]",
+        "finalScore": "[300]",
+        "startedDrinking": 1,
+        "totalNumOfDrinks": 4
+    },
+    "Game3": {
+        "uid": "lukus2013@yahoo.com",
+        "gameId": "2021124game3",
+        "date": "12/4/2021",
+        "frames": "[[9,1],[3,2],[10],[8,1],[9,0],[7,1],[10],[10],[6,3],[9,1,5]]",
+        "framesScore": "[[13],[18],[37],[46],[55],[63],[89],[108],[117],[132]]",
+        "finalScore": "[132]",
+        "startedDrinking": 1,
+        "totalNumOfDrinks": 1
+    }
+}

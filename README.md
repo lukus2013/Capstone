@@ -16,14 +16,16 @@ This App was built with the intention for the user to see how they perform in th
  # Authentication
 
   - All users will be required to login through Goggle via Firebase.
-### Deploying on Netlify
 
-- Build Command: `yarn build`
-- Publish directory: `build`
-- **Add Environmental Variables (NOT REQUIRED for Apps that do not use API Keys, etc)**
-    - Any Enviromental variables you are using in your `.env.local` file should be added to Netlify. 
-        - Go to Site settings > Build & deploy > Environment > Environment variables and the keys and values there.
-- **Update Firebase URL Settings**
-    - In Firebase under Authentication select sign in methods, scroll to Authorized domains. Add your Netlify URL.
-# Your own learning
-If you are interested in setting up your own project for things outside of class, you can run the command to start a React project `npx create-react-app {APP_NAME}` and setup all the files and structures from scratch.
+## Video Walkthrough
+()
+
+## ERD
+(https://dbdiagram.io/d/61a56cbc8c901501c0d84d3e)
+
+## Relevant Links
+ - [GithubProject Board](https://github.com/lukus2013/Capstone/projects/1)
+ - [Deployed Site]()
+ - [My GitHub](https://github.com/lukus2013)
+
+  
