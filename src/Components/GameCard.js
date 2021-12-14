@@ -1,14 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { deleteGame, getAGame } from '../api/data/ItemData';
+import { Link } from 'react-router-dom';
+import { deleteGame } from '../api/data/ItemData';
 
 export default function GameCard({ game, setGames }) {
   const handleClick = (method) => {
     if (method === 'delete') {
       deleteGame(game).then(setGames);
-    } else {
-      getAGame(game.fbKey).then();
-      console.warn(game);
     }
   };
   return (
@@ -31,13 +29,12 @@ export default function GameCard({ game, setGames }) {
         >
           DELETE
         </button>
-        <button
-          onClick={() => handleClick('edit')}
-          className="btn btn-primary"
-          type="button"
-        >
+        <Link to={`/edit/${game.fbKey}`} className="btn btn-primary">
           Edit
-        </button>
+        </Link>
+        <Link to={`/details/${game.fbKey}`} className="btn btn-info">
+          Details
+        </Link>
       </div>
     </div>
   );

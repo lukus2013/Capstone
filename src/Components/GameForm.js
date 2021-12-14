@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { createGame } from '../api/data/ItemData';
+import { createGame, updateGame } from '../api/data/ItemData';
 
 const initialState = {
   finalScore: '',
@@ -9,8 +10,22 @@ const initialState = {
   uid: '',
 };
 
-export default function GameForm({ userId }) {
+export default function GameForm({ obj, userId }) {
   const [formInput, setFormInput] = useState(initialState);
+  const history = useHistory();
+
+  useEffect(() => {
+    if (obj.fbKey) {
+      setFormInput({
+        finalScore: obj.finalScore,
+        fbKey: obj.fbKey,
+        frameStartedDrinking: obj.frameStartedDrinking,
+        totalDrinks: obj.totalDrinks,
+        uid: obj.uid,
+        date: obj.date,
+      });
+    }
+  }, [obj]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,9 +42,17 @@ export default function GameForm({ userId }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    createGame({ ...formInput, uid: userId, date: new Date() }).then(() => {
-      resetForm();
-    });
+    if (obj.fbKey) {
+      updateGame(formInput).then(() => {
+        resetForm();
+        history.push('/games');
+      });
+    } else {
+      createGame({ ...formInput, uid: userId, date: new Date() }).then(() => {
+        resetForm();
+        history.push('/games');
+      });
+    }
   };
 
   return (
@@ -79,7 +102,7 @@ export default function GameForm({ userId }) {
         </div>
         <div className="m-3">
           <button type="submit" className="btn btn-success">
-            Submit Game Form?
+            {obj.fbKey ? 'Update Game?' : 'Submit Game Form?'}
           </button>
         </div>
       </form>
@@ -88,5 +111,17 @@ export default function GameForm({ userId }) {
 }
 
 GameForm.propTypes = {
+  obj: PropTypes.shape({
+    finalScore: PropTypes.string,
+    fbKey: PropTypes.string,
+    frameStartedDrinking: PropTypes.string,
+    totalDrinks: PropTypes.string,
+    uid: PropTypes.string,
+    date: PropTypes.string,
+  }),
   userId: PropTypes.string.isRequired,
+};
+
+GameForm.defaultProps = {
+  obj: {},
 };
