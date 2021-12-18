@@ -6,6 +6,7 @@ import GameCard from '../Components/GameCard';
 
 export default function Games({ userId, userName }) {
   const [games, setGames] = useState([]);
+  const [filterGames, setFilterGames] = useState([]);
 
   useEffect(() => {
     let isMounted = true;
@@ -19,18 +20,19 @@ export default function Games({ userId, userName }) {
 
   const handleChange = (method) => {
     if (method === '100+') {
-      getGames(userId)
-        .then(games.filter((myGames) => myGames.finalScore > '100'))
-        .then(setGames);
+      setFilterGames(
+        games.filter((myGames) => Number(myGames.finalScore) > 100),
+      );
     } else if (method === '175+') {
-      getGames(userId)
-        .then(games.filter((myGames) => myGames.finalScore > '175'))
-        .then(setGames);
+      setFilterGames(
+        games.filter((myGames) => Number(myGames.finalScore) > 175),
+      );
     } else if (method === '250+') {
-      getGames(userId)
-        .then(games.filter((myGames) => myGames.finalScore > '250'))
-        .then(setGames);
-      console.warn(games);
+      setFilterGames(
+        games.filter((myGames) => Number(myGames.finalScore) > 250),
+      );
+    } else if (method === 'all') {
+      setFilterGames([]);
     }
   };
 
@@ -46,13 +48,20 @@ export default function Games({ userId, userName }) {
         <Dropdown.Item onClick={() => handleChange('250+')}>
           Score over 250
         </Dropdown.Item>
+        <Dropdown.Item onClick={() => handleChange('all')}>
+          All Scores
+        </Dropdown.Item>
       </DropdownButton>
       <h1 className="text-center">Your Games {userName} </h1>
       <div className="games-container">
         <div className="d-flex flex-wrap">
-          {games.map((game) => (
-            <GameCard key={game.fbKey} game={game} setGames={setGames} />
-          ))}
+          {filterGames.length
+            ? filterGames.map((game) => (
+              <GameCard key={game.fbKey} game={game} setGames={setGames} />
+            ))
+            : games.map((game) => (
+              <GameCard key={game.fbKey} game={game} setGames={setGames} />
+            ))}
         </div>
       </div>
     </div>
