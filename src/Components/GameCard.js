@@ -32,9 +32,9 @@ export default function GameCard({ game, setGames }) {
         <Link to={`/edit/${game.fbKey}`} className="btn btn-primary">
           Edit
         </Link>
-        <Link to={`/details/${game.fbKey}`} className="btn btn-info">
+        {/* <Link to={`/details/${game.fbKey}`} className="btn btn-info">
           Details
-        </Link>
+        </Link> */}
       </div>
     </div>
   );

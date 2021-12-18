@@ -56,7 +56,7 @@ export default function GameForm({ obj, userId }) {
   };
 
   return (
-    <div>
+    <div className="game-form">
       <form onSubmit={handleSubmit}>
         <h1 className="form-label visually-hidden">userId {userId}</h1>
         <div className="m-3">
