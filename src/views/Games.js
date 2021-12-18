@@ -38,7 +38,12 @@ export default function Games({ userId, userName }) {
 
   return (
     <div className="games-page">
-      <DropdownButton id="dropdown-basic-button" title="Filter Score">
+      <h1 className="text-center">Your Games {userName} </h1>
+      <DropdownButton
+        className="filter-score"
+        id="dropdown-basic-button"
+        title="Filter Score"
+      >
         <Dropdown.Item onClick={() => handleChange('100+')}>
           Score over 100
         </Dropdown.Item>
@@ -52,7 +57,6 @@ export default function Games({ userId, userName }) {
           All Scores
         </Dropdown.Item>
       </DropdownButton>
-      <h1 className="text-center">Your Games {userName} </h1>
       <div className="games-container">
         <div className="d-flex flex-wrap">
           {filterGames.length

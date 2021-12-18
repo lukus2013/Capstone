@@ -63,6 +63,9 @@ export default function GameForm({ obj, userId }) {
           <label htmlFor="finalScore">Final Score</label>
           <input
             type="number"
+            step="1"
+            max="300"
+            min="0"
             className="form-control"
             id="finalScore"
             name="finalScore"
@@ -76,6 +79,9 @@ export default function GameForm({ obj, userId }) {
           <label htmlFor="totalDrinks">Total Drinks Consumed</label>
           <input
             type="number"
+            step="1"
+            max="50"
+            min="0"
             className="form-control"
             id="totalDrinks"
             name="totalDrinks"
@@ -91,6 +97,9 @@ export default function GameForm({ obj, userId }) {
           </label>
           <input
             type="number"
+            step="1"
+            max="10"
+            min="1"
             className="form-control"
             id="frameStartedDrinking"
             name="frameStartedDrinking"
@@ -100,8 +109,8 @@ export default function GameForm({ obj, userId }) {
             required
           />
         </div>
-        <div className="m-3">
-          <button type="submit" className="btn btn-success">
+        <div className="d-grid gap-2 col-6 mx-auto">
+          <button type="submit" className="game-sub btn btn-outline-success">
             {obj.fbKey ? 'Update Game?' : 'Submit Game Form?'}
           </button>
         </div>
