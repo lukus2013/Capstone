@@ -6,12 +6,10 @@ This App was built with the intention for the user to see how they perform in th
 # CRUD:
 
  - The User has the ability to create, read, update, and delete the games they have created and played.
- - The user can do the same with the notes they have created on the specific games.
 
 # Drink Tracker
 
  - The user can track when they started drinking in the app and how many they had by the time of the games end.
- - The user can log what specifically they drank in their notes section.
 
  # Authentication
 
@@ -19,6 +17,8 @@ This App was built with the intention for the user to see how they perform in th
 
 
 ## Porject Scrrenshots
+-Home page (homepage.jpg)
+
 
 ## Video Walkthrough
 ()
